@@ -12,6 +12,8 @@ import javax.swing.border.LineBorder;
 import loginScreen.FLoginScreen;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -69,6 +71,7 @@ public class FHome extends JFrame {
 		PnlMenu.setLayout(null);
 		
 		JPanel PnlBalance = new JPanel();
+		PnlBalance.addMouseListener(new PanelButtonMouseAdapter(PnlBalance));
 		PnlBalance.setBounds(0, 65, 256, 64);
 		PnlMenu.add(PnlBalance);
 		PnlBalance.setBackground(new Color(47, 79, 79));
@@ -92,6 +95,7 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea);
 		
 		JPanel PnlAdd = new JPanel();
+		PnlAdd.addMouseListener(new PanelButtonMouseAdapter(PnlAdd));
 		PnlAdd.setBounds(0, 171, 256, 64);
 		PnlMenu.add(PnlAdd);
 		PnlAdd.setBackground(new Color(47, 79, 79));
@@ -115,6 +119,7 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea_1);
 		
 		JPanel PnlHistory = new JPanel();
+		PnlHistory.addMouseListener(new PanelButtonMouseAdapter(PnlHistory));
 		PnlHistory.setBounds(0, 277, 256, 64);
 		PnlMenu.add(PnlHistory);
 		PnlHistory.setBackground(new Color(47, 79, 79));
@@ -138,6 +143,7 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea_1_1);
 		
 		JPanel PnlRecurringTransactions = new JPanel();
+		PnlRecurringTransactions.addMouseListener(new PanelButtonMouseAdapter(PnlRecurringTransactions));
 		PnlRecurringTransactions.setBounds(0, 383, 256, 64);
 		PnlMenu.add(PnlRecurringTransactions);
 		PnlRecurringTransactions.setBackground(new Color(47, 79, 79));
@@ -161,6 +167,30 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea_1_1_1);
 		
 		JPanel PnlSignOut = new JPanel();
+		PnlSignOut.addMouseListener(
+				new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						
+					}
+					
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						PnlSignOut.setBackground(new Color(0, 204, 204));
+					}
+					@Override
+					public void mouseExited(MouseEvent e) {
+						PnlSignOut.setBackground(new Color(0, 139, 139));
+					}
+					@Override
+					public void mousePressed(MouseEvent e) {
+						PnlSignOut.setBackground(new Color(131, 233, 232));
+					}
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						PnlSignOut.setBackground(new Color(0, 204, 204));
+					}
+			});
 		PnlSignOut.setBounds(0, 499, 256, 39);
 		PnlMenu.add(PnlSignOut);
 		PnlSignOut.setBackground(new Color(0, 139, 139));
@@ -178,24 +208,35 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea_1_2);
 	}
 	
+	
 	private class PanelButtonMouseAdapter extends MouseAdapter{
+		
+		JPanel panel;
+		
+		public PanelButtonMouseAdapter(JPanel panel) {
+			this.panel = panel;
+		}
+		
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			
+			panel.setBackground(new Color(112, 128, 144));
 		}
 		
 		@Override
 		public void mouseExited(MouseEvent e) {
-	}
+			panel.setBackground(new Color(47, 79, 79));
+		}
 		
 		
 		@Override
 		public void mousePressed(MouseEvent e) {
-	}
+			panel.setBackground(new Color(115, 171, 171));
+		}
 		
 		@Override
 		public void mouseReleased(MouseEvent e) {
-	}
+			panel.setBackground(new Color(112, 128, 144));
+		}
 		
 	}
 }
