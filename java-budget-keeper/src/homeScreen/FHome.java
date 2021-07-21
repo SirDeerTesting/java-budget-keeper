@@ -8,17 +8,28 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
+import loginScreen.FLoginScreen;
+
 import javax.swing.JLabel;
 import java.awt.Component;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
+
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.SwingConstants;
 
 public class FHome extends JFrame {
+	
+	private Image img_balanceIcon = new ImageIcon(FLoginScreen.class.getResource("/design/balanceIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
+	private Image img_addIcon = new ImageIcon(FLoginScreen.class.getResource("/design/addIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
+	private Image img_historyIcon = new ImageIcon(FLoginScreen.class.getResource("/design/historyIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
+	private Image img_recurringIcon = new ImageIcon(FLoginScreen.class.getResource("/design/recurringIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
 
 	private JPanel contentPane;
 
@@ -57,22 +68,24 @@ public class FHome extends JFrame {
 		contentPane.add(PnlMenu);
 		PnlMenu.setLayout(null);
 		
-		JPanel PnlHome = new JPanel();
-		PnlHome.setBounds(0, 65, 256, 64);
-		PnlMenu.add(PnlHome);
-		PnlHome.setBackground(new Color(47, 79, 79));
-		PnlHome.setLayout(null);
+		JPanel PnlBalance = new JPanel();
+		PnlBalance.setBounds(0, 65, 256, 64);
+		PnlMenu.add(PnlBalance);
+		PnlBalance.setBackground(new Color(47, 79, 79));
+		PnlBalance.setLayout(null);
 		
-		JLabel lblHome = new JLabel("Strona G\u0142\u00F3wna");
-		lblHome.setForeground(new Color(255, 255, 255));
-		lblHome.setHorizontalAlignment(SwingConstants.LEFT);
-		lblHome.setBounds(78, 11, 168, 42);
-		PnlHome.add(lblHome);
-		lblHome.setFont(new Font("Arial", Font.BOLD, 14));
+		JLabel lblBalance = new JLabel("Bilans");
+		lblBalance.setForeground(new Color(255, 255, 255));
+		lblBalance.setHorizontalAlignment(SwingConstants.LEFT);
+		lblBalance.setBounds(78, 11, 168, 42);
+		PnlBalance.add(lblBalance);
+		lblBalance.setFont(new Font("Arial", Font.BOLD, 14));
 		
-		JLabel lbliconHome = new JLabel("");
-		lbliconHome.setBounds(10, 11, 58, 42);
-		PnlHome.add(lbliconHome);
+		JLabel lbliconBalance = new JLabel("");
+		lbliconBalance.setHorizontalAlignment(SwingConstants.CENTER);
+		lbliconBalance.setBounds(10, 11, 58, 42);
+		PnlBalance.add(lbliconBalance);
+		lbliconBalance.setIcon(new ImageIcon(img_balanceIcon));
 		
 		Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea.setBounds(0, 140, 256, 20);
@@ -92,8 +105,10 @@ public class FHome extends JFrame {
 		PnlAdd.add(lblAdd);
 		
 		JLabel lbliconAdd = new JLabel("");
+		lbliconAdd.setHorizontalAlignment(SwingConstants.CENTER);
 		lbliconAdd.setBounds(10, 11, 58, 42);
 		PnlAdd.add(lbliconAdd);
+		lbliconAdd.setIcon(new ImageIcon(img_addIcon));
 		
 		Component rigidArea_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_1.setBounds(0, 246, 256, 20);
@@ -105,7 +120,7 @@ public class FHome extends JFrame {
 		PnlHistory.setBackground(new Color(47, 79, 79));
 		PnlHistory.setLayout(null);
 		
-		JLabel lblHistory = new JLabel("HIstoria");
+		JLabel lblHistory = new JLabel("Historia");
 		lblHistory.setForeground(new Color(255, 255, 255));
 		lblHistory.setHorizontalAlignment(SwingConstants.LEFT);
 		lblHistory.setFont(new Font("Arial", Font.BOLD, 14));
@@ -113,8 +128,10 @@ public class FHome extends JFrame {
 		PnlHistory.add(lblHistory);
 		
 		JLabel lbliconHistory = new JLabel("");
+		lbliconHistory.setHorizontalAlignment(SwingConstants.CENTER);
 		lbliconHistory.setBounds(10, 11, 58, 42);
 		PnlHistory.add(lbliconHistory);
+		lbliconHistory.setIcon(new ImageIcon(img_historyIcon));
 		
 		Component rigidArea_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_1_1.setBounds(0, 352, 256, 20);
@@ -134,8 +151,10 @@ public class FHome extends JFrame {
 		PnlRecurringTransactions.add(lblRecurring);
 		
 		JLabel lbliconRecurring = new JLabel("");
+		lbliconRecurring.setHorizontalAlignment(SwingConstants.CENTER);
 		lbliconRecurring.setBounds(10, 11, 58, 42);
 		PnlRecurringTransactions.add(lbliconRecurring);
+		lbliconRecurring.setIcon(new ImageIcon(img_recurringIcon));
 		
 		Component rigidArea_1_1_1 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_1_1_1.setBounds(0, 458, 256, 30);
@@ -178,5 +197,5 @@ public class FHome extends JFrame {
 		public void mouseReleased(MouseEvent e) {
 	}
 		
-		
+	}
 }
