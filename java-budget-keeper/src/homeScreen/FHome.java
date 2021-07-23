@@ -34,6 +34,11 @@ public class FHome extends JFrame {
 	private Image img_recurringIcon = new ImageIcon(FLoginScreen.class.getResource("/design/recurringIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
 
 	private JPanel contentPane;
+	
+	private PanelBalance panelBalance;
+	private PanelAdd panelAdd;
+	private PanelHistory panelHistory;
+	private PanelRecurring panelRecurring;
 
 	/**
 	 * Launch the application.
@@ -63,6 +68,11 @@ public class FHome extends JFrame {
 		contentPane.setBorder(new LineBorder(new Color(1, 50, 32), 2));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		panelBalance = new PanelBalance();
+		panelAdd = new PanelAdd();
+		panelHistory = new PanelHistory();
+		panelRecurring = new PanelRecurring();
 		
 		JPanel PnlMenu = new JPanel();
 		PnlMenu.setBounds(0, 0, 256, 580);
@@ -206,7 +216,38 @@ public class FHome extends JFrame {
 		Component rigidArea_1_2 = Box.createRigidArea(new Dimension(20, 20));
 		rigidArea_1_2.setBounds(0, 549, 256, 20);
 		PnlMenu.add(rigidArea_1_2);
+		
+		JLabel lblX_close = new JLabel("X");
+		lblX_close.addMouseListener(
+			new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					if(JOptionPane.showConfirmDialog(null, "Czy na pewno chcesz zamkn\u0105\u0107 t\u0105 aplikacj\u0119?", "Potwierdzenie", JOptionPane.YES_NO_OPTION) == 0)
+						FHome.this.dispose();
+				}
+				
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					lblX_close.setForeground(Color.RED);
+				}
+				
+				@Override
+				public void mouseExited(MouseEvent e) {
+					lblX_close.setForeground(new Color(139, 0, 0));
+				}
+		});
+		lblX_close.setHorizontalAlignment(SwingConstants.CENTER);
+		lblX_close.setForeground(new Color(139, 0, 0));
+		lblX_close.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+		lblX_close.setBorder(null);
+		lblX_close.setBounds(850, 11, 20, 20);
+		contentPane.add(lblX_close);
+		
+		JPanel PanelMainContent = new JPanel();
+		PanelMainContent.setBounds(266, 11, 604, 558);
+		contentPane.add(PanelMainContent);
 	}
+	
 	
 	
 	private class PanelButtonMouseAdapter extends MouseAdapter{
