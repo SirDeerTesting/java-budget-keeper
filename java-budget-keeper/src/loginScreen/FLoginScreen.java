@@ -25,6 +25,7 @@ import javax.swing.UIManager;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 @SuppressWarnings("serial")
 public class FLoginScreen extends JFrame {
@@ -34,6 +35,8 @@ public class FLoginScreen extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtUsername;
 	private JPasswordField pwdPassword;
+	
+	private int mouseX, mouseY;
 
 	private JLabel lblLoginMessage = new JLabel("");
 
@@ -151,7 +154,34 @@ public class FLoginScreen extends JFrame {
 		contentPane.add(lblLoginIcon);
 		lblLoginIcon.setIcon(new ImageIcon(img_loginLogo));
 		
+		lblLoginMessage.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLoginMessage.setForeground(new Color(139, 0, 0));
+		lblLoginMessage.setFont(new Font("Arial", Font.BOLD, 13));
+		lblLoginMessage.setBounds(300, 67, 237, 20);
+		contentPane.add(lblLoginMessage);
+		
+		JPanel PnlDraggable = new JPanel();
+		PnlDraggable.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				FLoginScreen.this.setLocation(FLoginScreen.this.getX() + e.getX() - mouseX, FLoginScreen.this.getY() + e.getY() - mouseY);
+			}
+		});
+		PnlDraggable.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				mouseX = e.getX();
+				mouseY = e.getY();
+			}
+		});
+		PnlDraggable.setBackground(new Color(1, 50, 32));
+		PnlDraggable.setBounds(2, 2, 598, 22);
+		contentPane.add(PnlDraggable);
+		PnlDraggable.setLayout(null);
+		
 		JLabel lblX_close = new JLabel("X");
+		lblX_close.setBounds(578, 0, 20, 20);
+		PnlDraggable.add(lblX_close);
 		lblX_close.addMouseListener(
 			new MouseAdapter() {
 				@Override
@@ -174,14 +204,6 @@ public class FLoginScreen extends JFrame {
 		lblX_close.setForeground(new Color(139, 0, 0));
 		lblX_close.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		lblX_close.setHorizontalAlignment(SwingConstants.CENTER);
-		lblX_close.setBounds(570, 10, 20, 20);
-		contentPane.add(lblX_close);
-		
-		lblLoginMessage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLoginMessage.setForeground(new Color(139, 0, 0));
-		lblLoginMessage.setFont(new Font("Arial", Font.BOLD, 13));
-		lblLoginMessage.setBounds(300, 67, 237, 20);
-		contentPane.add(lblLoginMessage);
 		setLocationRelativeTo(null);
 	}
 }

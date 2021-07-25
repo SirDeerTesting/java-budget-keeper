@@ -3,6 +3,7 @@ package homeScreen;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Color;
 
 public class PanelAdd extends JPanel {
 
@@ -10,6 +11,7 @@ public class PanelAdd extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelAdd() {
+		setBackground(Color.PINK);
 		
 		setBounds(0, 0, 604, 558);
 		setLayout(null);

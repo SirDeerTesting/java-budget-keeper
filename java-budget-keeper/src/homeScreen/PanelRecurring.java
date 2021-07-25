@@ -3,6 +3,7 @@ package homeScreen;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Color;
 
 public class PanelRecurring extends JPanel {
 
@@ -10,6 +11,7 @@ public class PanelRecurring extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelRecurring() {
+		setBackground(Color.GRAY);
 		
 		setBounds(0, 0, 604, 558);
 		setLayout(null);

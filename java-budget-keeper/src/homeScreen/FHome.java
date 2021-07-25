@@ -25,6 +25,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.SwingConstants;
+import java.awt.event.MouseMotionAdapter;
 
 public class FHome extends JFrame {
 	
@@ -39,6 +40,8 @@ public class FHome extends JFrame {
 	private PanelAdd panelAdd;
 	private PanelHistory panelHistory;
 	private PanelRecurring panelRecurring;
+	
+	private int mouseX, mouseY;
 
 	/**
 	 * Launch the application.
@@ -70,12 +73,16 @@ public class FHome extends JFrame {
 		contentPane.setLayout(null);
 		
 		panelBalance = new PanelBalance();
+		panelBalance.setBounds(0, 0, 614, 558);
 		panelAdd = new PanelAdd();
+		panelAdd.setBounds(0, 0, 614, 558);
 		panelHistory = new PanelHistory();
+		panelHistory.setBounds(0, 0, 614, 558);
 		panelRecurring = new PanelRecurring();
+		panelRecurring.setBounds(0, 0, 614, 558);
 		
 		JPanel PnlMenu = new JPanel();
-		PnlMenu.setBounds(2, 2, 254, 576);
+		PnlMenu.setBounds(2, 29, 254, 549);
 		PnlMenu.setBackground(new Color(37, 107, 80));
 		contentPane.add(PnlMenu);
 		PnlMenu.setLayout(null);
@@ -269,7 +276,7 @@ public class FHome extends JFrame {
 		contentPane.add(lblX_close);
 		
 		JPanel PanelMainContent = new JPanel();
-		PanelMainContent.setBounds(266, 11, 604, 558);
+		PanelMainContent.setBounds(266, 29, 614, 540);
 		contentPane.add(PanelMainContent);
 		PanelMainContent.setLayout(null);
 		
@@ -279,6 +286,25 @@ public class FHome extends JFrame {
 		PanelMainContent.add(panelRecurring);
 		
 		menuClicked(panelBalance);
+		
+		JPanel PnlDraggable = new JPanel();
+		PnlDraggable.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				FHome.this.setLocation(FHome.this.getX() + e.getX() - mouseX, FHome.this.getY() + e.getY() - mouseY);
+			}
+		});
+		PnlDraggable.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				mouseX = e.getX();
+				mouseY = e.getY();
+			}
+		});
+		
+		PnlDraggable.setBounds(2, 2, 888, 22);
+		PnlDraggable.setBackground(new Color(1, 50, 32));
+		contentPane.add(PnlDraggable);
 	}
 	
 	public void menuClicked(JPanel panel) {
