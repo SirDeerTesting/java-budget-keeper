@@ -11,7 +11,7 @@ public class PanelHistory extends JPanel {
 	 */
 	public PanelHistory() {
 		
-		setSize(604, 558);
+		setBounds(0, 0, 604, 558);
 		setLayout(null);
 		
 		JLabel lblHistoria = new JLabel("HISTORIA");

@@ -62,7 +62,7 @@ public class FHome extends JFrame {
 	public FHome() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 880, 580);
+		setBounds(100, 100, 890, 580);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(43, 122, 91));
 		contentPane.setBorder(new LineBorder(new Color(1, 50, 32), 2));
@@ -75,13 +75,18 @@ public class FHome extends JFrame {
 		panelRecurring = new PanelRecurring();
 		
 		JPanel PnlMenu = new JPanel();
-		PnlMenu.setBounds(0, 0, 256, 580);
+		PnlMenu.setBounds(2, 2, 254, 576);
 		PnlMenu.setBackground(new Color(37, 107, 80));
 		contentPane.add(PnlMenu);
 		PnlMenu.setLayout(null);
 		
 		JPanel PnlBalance = new JPanel();
-		PnlBalance.addMouseListener(new PanelButtonMouseAdapter(PnlBalance));
+		PnlBalance.addMouseListener(new PanelButtonMouseAdapter(PnlBalance) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(panelBalance);
+			}
+		});
 		PnlBalance.setBounds(0, 65, 256, 64);
 		PnlMenu.add(PnlBalance);
 		PnlBalance.setBackground(new Color(47, 79, 79));
@@ -105,7 +110,12 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea);
 		
 		JPanel PnlAdd = new JPanel();
-		PnlAdd.addMouseListener(new PanelButtonMouseAdapter(PnlAdd));
+		PnlAdd.addMouseListener(new PanelButtonMouseAdapter(PnlAdd) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(panelAdd);
+			}
+		});
 		PnlAdd.setBounds(0, 171, 256, 64);
 		PnlMenu.add(PnlAdd);
 		PnlAdd.setBackground(new Color(47, 79, 79));
@@ -129,7 +139,12 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea_1);
 		
 		JPanel PnlHistory = new JPanel();
-		PnlHistory.addMouseListener(new PanelButtonMouseAdapter(PnlHistory));
+		PnlHistory.addMouseListener(new PanelButtonMouseAdapter(PnlHistory) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(panelHistory);
+			}
+		});
 		PnlHistory.setBounds(0, 277, 256, 64);
 		PnlMenu.add(PnlHistory);
 		PnlHistory.setBackground(new Color(47, 79, 79));
@@ -153,7 +168,12 @@ public class FHome extends JFrame {
 		PnlMenu.add(rigidArea_1_1);
 		
 		JPanel PnlRecurringTransactions = new JPanel();
-		PnlRecurringTransactions.addMouseListener(new PanelButtonMouseAdapter(PnlRecurringTransactions));
+		PnlRecurringTransactions.addMouseListener(new PanelButtonMouseAdapter(PnlRecurringTransactions) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				menuClicked(panelRecurring);
+			}
+		});
 		PnlRecurringTransactions.setBounds(0, 383, 256, 64);
 		PnlMenu.add(PnlRecurringTransactions);
 		PnlRecurringTransactions.setBackground(new Color(47, 79, 79));
@@ -181,7 +201,11 @@ public class FHome extends JFrame {
 				new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						
+						if(JOptionPane.showConfirmDialog(null, "Czy na pewno chcesz si\u0119 wylogowa\u0107?") == 0) {
+							FLoginScreen fLoginScreen = new FLoginScreen();
+							fLoginScreen.setVisible(true);
+							FHome.this.dispose();
+						}
 					}
 					
 					@Override
@@ -200,6 +224,7 @@ public class FHome extends JFrame {
 					public void mouseReleased(MouseEvent e) {
 						PnlSignOut.setBackground(new Color(0, 204, 204));
 					}
+					
 			});
 		PnlSignOut.setBounds(0, 499, 256, 39);
 		PnlMenu.add(PnlSignOut);
@@ -240,15 +265,30 @@ public class FHome extends JFrame {
 		lblX_close.setForeground(new Color(139, 0, 0));
 		lblX_close.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		lblX_close.setBorder(null);
-		lblX_close.setBounds(850, 11, 20, 20);
+		lblX_close.setBounds(870, 2, 20, 20);
 		contentPane.add(lblX_close);
 		
 		JPanel PanelMainContent = new JPanel();
 		PanelMainContent.setBounds(266, 11, 604, 558);
 		contentPane.add(PanelMainContent);
+		PanelMainContent.setLayout(null);
+		
+		PanelMainContent.add(panelBalance);
+		PanelMainContent.add(panelAdd);
+		PanelMainContent.add(panelHistory);
+		PanelMainContent.add(panelRecurring);
+		
+		menuClicked(panelBalance);
 	}
 	
-	
+	public void menuClicked(JPanel panel) {
+		panelBalance.setVisible(false);
+		panelAdd.setVisible(false);
+		panelHistory.setVisible(false);
+		panelRecurring.setVisible(false);
+		
+		panel.setVisible(true);
+	}
 	
 	private class PanelButtonMouseAdapter extends MouseAdapter{
 		

@@ -11,7 +11,7 @@ public class PanelRecurring extends JPanel {
 	 */
 	public PanelRecurring() {
 		
-		setSize(604, 558);
+		setBounds(0, 0, 604, 558);
 		setLayout(null);
 		
 		JLabel lblTransakcjeCykliczne = new JLabel("TRANSAKCJE CYKLICZNE");

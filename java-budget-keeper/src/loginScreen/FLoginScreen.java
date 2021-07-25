@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import homeScreen.FHome;
+
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -102,6 +105,9 @@ public class FLoginScreen extends JFrame {
 					if(txtUsername.getText().equals("admin") && pwdPassword.getText().equals("admin")) {
 						lblLoginMessage.setText("");
 						JOptionPane.showMessageDialog(null, "Witaj!");
+						FHome fHome = new FHome();
+						fHome.setVisible(true);
+						FLoginScreen.this.dispose();
 					}
 					else if(txtUsername.getText().equals("") || pwdPassword.getText().equals("")){
 						lblLoginMessage.setText("Prosz\u0119 uzupe\u0142ni\u0107 wszystkie pola.");

@@ -11,7 +11,7 @@ public class PanelBalance extends JPanel {
 	 */
 	public PanelBalance() {
 		
-		setSize(604, 558);
+		setBounds(0, 0, 604, 558);
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("BILANS");

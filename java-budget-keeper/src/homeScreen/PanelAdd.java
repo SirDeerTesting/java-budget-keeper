@@ -11,8 +11,9 @@ public class PanelAdd extends JPanel {
 	 */
 	public PanelAdd() {
 		
-		setSize(604, 558);
+		setBounds(0, 0, 604, 558);
 		setLayout(null);
+		setVisible(true);
 		
 		JLabel lblWydadkiIPrzychodu = new JLabel("WYDADKI I PRZYCH\u00D3D");
 		lblWydadkiIPrzychodu.setFont(new Font("Verdana", Font.BOLD, 24));
