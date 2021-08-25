@@ -1,11 +1,9 @@
 package homeScreen;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
@@ -27,6 +25,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseMotionAdapter;
 
+@SuppressWarnings("serial")
 public class FHome extends JFrame {
 	
 	private Image img_balanceIcon = new ImageIcon(FLoginScreen.class.getResource("/design/balanceIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
