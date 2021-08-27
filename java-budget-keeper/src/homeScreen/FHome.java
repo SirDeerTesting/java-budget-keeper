@@ -29,6 +29,8 @@ import java.awt.event.MouseMotionAdapter;
 
 public class FHome extends JFrame {
 	
+	//TEST BRANCH
+	
 	private Image img_balanceIcon = new ImageIcon(FLoginScreen.class.getResource("/design/balanceIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
 	private Image img_addIcon = new ImageIcon(FLoginScreen.class.getResource("/design/addIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);
 	private Image img_historyIcon = new ImageIcon(FLoginScreen.class.getResource("/design/historyIcon.png")).getImage().getScaledInstance(42, 42, Image.SCALE_SMOOTH);

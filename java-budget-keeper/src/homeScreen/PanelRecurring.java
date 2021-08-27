@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 
+@SuppressWarnings("serial")
 public class PanelRecurring extends JPanel {
 
 	/**
