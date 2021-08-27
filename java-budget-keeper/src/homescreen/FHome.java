@@ -4,9 +4,13 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
+import databasefunctions.DbConnection;
+import databasefunctions.TablePopulate;
 import loginscreen.FLoginScreen;
 
 import javax.swing.JLabel;
@@ -151,6 +155,8 @@ public class FHome extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				menuClicked(panelHistory);
+				DbConnection.connect();
+				TablePopulate.select(PanelHistory.returnTable());
 			}
 		});
 		PnlHistory.setBounds(0, 277, 256, 64);
