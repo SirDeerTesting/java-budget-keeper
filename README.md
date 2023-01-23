@@ -1,2 +1,4 @@
 # java-budget-keeper
-🚧 [WIP] 🚧 Java desktop application for keeping your budget in mind.
+🏳[ABANDONED]🏳 Java desktop application for keeping your budget in mind.
+
+Software abandoned because of lack of time [studies]. Maybe someday I will come back to it.
